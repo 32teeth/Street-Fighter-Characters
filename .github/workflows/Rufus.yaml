@@ -2,7 +2,7 @@ Name: Rufus
 SchemaVersion: "1.0"
 RunMode: PARALLEL
 
- Optional - Set automatic triggers. Doing another no-op update
+#  Optional - Set automatic triggers. Doing another no-op update
 Triggers:
   - Type: Push
     Branches:
