@@ -1,0 +1,34 @@
+Name: Guy
+SchemaVersion: "1.0"
+RunMode: PARALLEL
+
+ Optional - Set automatic triggers. Doing another no-op update
+Triggers:
+  - Type: Push
+    Branches:
+      - Guy
+  - Type: PullRequest
+    Events:
+    - open
+    - revision
+    Branches:
+      - main
+Actions:
+  Friends:
+    Actions:
+      A:
+        Identifier: aws/build-gamma@v1
+        Inputs:
+          Sources:
+            - WorkflowSource
+        Configuration:
+          Steps:
+            - Run: echo "Guy!"
+      B:
+        Identifier: aws/build-gamma@v1
+        Inputs:
+          Sources:
+            - WorkflowSource
+        Configuration:
+          Steps:
+            - Run: echo "Guy!"

@@ -21,7 +21,42 @@ cd .github/workflows
 
 for BEE in "${BEES[@]}";
 do
-  git checkout -b ${BEE}
-  git push origin ${BEE}
+  touch ${BEE}.yaml
+  tee ${BEE}.yaml << END
+Name: ${BEE}
+SchemaVersion: "1.0"
+RunMode: PARALLEL
+
+ Optional - Set automatic triggers. Doing another no-op update
+Triggers:
+  - Type: Push
+    Branches:
+      - ${BEE}
+  - Type: PullRequest
+    Events:
+    - open
+    - revision
+    Branches:
+      - main
+Actions:
+  Friends:
+    Actions:
+      A:
+        Identifier: aws/build-gamma@v1
+        Inputs:
+          Sources:
+            - WorkflowSource
+        Configuration:
+          Steps:
+            - Run: echo "${BEE}!"
+      B:
+        Identifier: aws/build-gamma@v1
+        Inputs:
+          Sources:
+            - WorkflowSource
+        Configuration:
+          Steps:
+            - Run: echo "${BEE}!"
+END
 done
 
