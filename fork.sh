@@ -22,7 +22,7 @@ cd .github/workflows
 for STUDENT in "${STUDENTS[@]}";
 do
   git checkout ${STUDENT}
-  git merge main
+  git rebase main
   git add .
   git commit -am '$(DATE)'
   git push
