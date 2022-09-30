@@ -98,4 +98,4 @@ push_branch () {
   done
 }
 
-create_workflows
+create_branches
