@@ -1,4 +1,4 @@
-name: CI
+name: Poison
 on:
   push:
     branches: [ "Poison" ]

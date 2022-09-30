@@ -1,4 +1,4 @@
-name: CI
+name: Violent-Ken
 on:
   push:
     branches: [ "Violent-Ken" ]

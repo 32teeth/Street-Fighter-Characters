@@ -1,4 +1,4 @@
-name: CI
+name: M-Bison
 on:
   push:
     branches: [ "M-Bison" ]

@@ -1,4 +1,4 @@
-name: CI
+name: C-Viper
 on:
   push:
     branches: [ "C-Viper" ]

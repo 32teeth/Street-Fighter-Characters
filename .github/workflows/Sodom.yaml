@@ -1,4 +1,4 @@
-name: CI
+name: Sodom
 on:
   push:
     branches: [ "Sodom" ]

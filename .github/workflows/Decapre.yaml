@@ -1,4 +1,4 @@
-name: CI
+name: Decapre
 on:
   push:
     branches: [ "Decapre" ]

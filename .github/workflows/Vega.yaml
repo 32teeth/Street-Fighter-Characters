@@ -1,4 +1,4 @@
-name: CI
+name: Vega
 on:
   push:
     branches: [ "Vega" ]

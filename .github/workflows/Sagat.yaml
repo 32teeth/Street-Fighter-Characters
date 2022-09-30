@@ -1,4 +1,4 @@
-name: CI
+name: Sagat
 on:
   push:
     branches: [ "Sagat" ]

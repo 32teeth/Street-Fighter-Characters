@@ -1,4 +1,4 @@
-name: CI
+name: T-Hawk
 on:
   push:
     branches: [ "T-Hawk" ]

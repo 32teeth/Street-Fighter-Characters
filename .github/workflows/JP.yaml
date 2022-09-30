@@ -1,4 +1,4 @@
-name: CI
+name: JP
 on:
   push:
     branches: [ "JP" ]

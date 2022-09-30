@@ -1,4 +1,4 @@
-name: CI
+name: E-Honda
 on:
   push:
     branches: [ "E-Honda" ]

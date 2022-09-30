@@ -25,7 +25,7 @@ create_workflows () {
     echo -e "${RESPONSE}\n${running} ${bold} creating ${STUDENT} workflow${nc}";
     touch ${STUDENT}.yaml
     tee ${STUDENT}.yaml << END
-name: CI
+name: ${STUDENT}
 on:
   push:
     branches: [ "${STUDENT}" ]
@@ -60,9 +60,8 @@ delete_branches () {
   for STUDENT in "${STUDENTS[@]}";
   do
     echo -e "${RESPONSE}\n${running} ${bold} deleting ${STUDENT} branch${nc}";
-    #git branch -D ${STUDENT}
+    git branch -D ${STUDENT}
     git push origin --delete ${STUDENT}
-    #git push origin -d ${STUDENT}
     RESPONSE="${RESPONSE}\n${check} ${white} deleted ${STUDENT} branch${nc}";
   done
 }
@@ -98,4 +97,4 @@ push_branch () {
   done
 }
 
-create_branches
+create_workflows

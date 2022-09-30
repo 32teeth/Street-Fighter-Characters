@@ -1,4 +1,4 @@
-name: CI
+name: Remy
 on:
   push:
     branches: [ "Remy" ]

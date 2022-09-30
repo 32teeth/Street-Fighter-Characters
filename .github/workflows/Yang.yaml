@@ -1,4 +1,4 @@
-name: CI
+name: Yang
 on:
   push:
     branches: [ "Yang" ]

@@ -1,4 +1,4 @@
-name: CI
+name: F-A-N-G-
 on:
   push:
     branches: [ "F-A-N-G-" ]

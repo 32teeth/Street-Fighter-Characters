@@ -1,4 +1,4 @@
-name: CI
+name: Necro
 on:
   push:
     branches: [ "Necro" ]

@@ -1,4 +1,4 @@
-name: CI
+name: Urien
 on:
   push:
     branches: [ "Urien" ]

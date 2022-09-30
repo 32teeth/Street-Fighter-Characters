@@ -1,4 +1,4 @@
-name: CI
+name: Evil-Ryu
 on:
   push:
     branches: [ "Evil-Ryu" ]

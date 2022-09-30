@@ -1,4 +1,4 @@
-name: CI
+name: Gouken
 on:
   push:
     branches: [ "Gouken" ]
