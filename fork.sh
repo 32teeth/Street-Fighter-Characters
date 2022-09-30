@@ -61,7 +61,7 @@ delete_branches () {
   do
     echo -e "${RESPONSE}\n${running} ${bold} deleting ${STUDENT} branch${nc}";
     git branch -D ${STUDENT}
-    git push origin --delete ${STUDENT}
+    #git push origin --delete ${STUDENT}
     RESPONSE="${RESPONSE}\n${check} ${white} deleted ${STUDENT} branch${nc}";
   done
 }
@@ -97,4 +97,4 @@ push_branch () {
   done
 }
 
-create_workflows
+delete_branches
