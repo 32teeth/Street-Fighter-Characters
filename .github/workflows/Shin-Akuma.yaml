@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+    branches: [ "Shin-Akuma" ]
+  pull_request:
+    branches: [ "Shin-Akuma" ]
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo Shin-Akuma!

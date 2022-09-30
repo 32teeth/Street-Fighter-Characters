@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+    branches: [ "Laura" ]
+  pull_request:
+    branches: [ "Laura" ]
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo Laura!

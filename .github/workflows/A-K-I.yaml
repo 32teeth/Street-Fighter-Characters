@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+    branches: [ "A-K-I" ]
+  pull_request:
+    branches: [ "A-K-I" ]
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo A-K-I!
