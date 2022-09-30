@@ -16,7 +16,7 @@ clear
 echo -e "${RESPONSE}";
 
 
-STUDENTS=( Abel Abigail Adon Akira Akuma A-K-I Alex Balrog Birdie Blanka C-Viper Cammy Chun-Li Cody Dan Decapre Dee Jay Dhalsim Dudley E-Honda Eagle Ed El Fuerte Elena Eleven Evil-Ryu F-A-N-G- Falke Fei Long G Geki Gen Gill Gouken Guile Guy Hakan Hugo Ibuki Ingrid Jamie Joe JP Juli Juni Juri Kage Karin Ken Kimberly Kolin Laura Lee Lily Lucia Luke M-Bison Maki Makoto Marisa Menat Mike Manon Nash Necalli Necro Oni Oro Poison Q R-Mika Rashid Remy Retsu Rolento Rose Rufus Ryu Sagat Sakura Sean Seth Shin-Akuma Sodom T-Hawk Twelve Urien Vega Violent-Ken Yang Yun Zangief Zeku)
+STUDENTS=( Abel Abigail Adon Akira Akuma A-K-I Alex Balrog Birdie Blanka C-Viper Cammy Chun-Li Cody Dan Decapre Dee-Jay Dhalsim Dudley E-Honda Eagle Ed El-Fuerte Elena Eleven Evil-Ryu F-A-N-G- Falke Fei-Long G Geki Gen Gill Gouken Guile Guy Hakan Hugo Ibuki Ingrid Jamie Joe JP Juli Juni Juri Kage Karin Ken Kimberly Kolin Laura Lee Lily Lucia Luke M-Bison Maki Makoto Marisa Menat Mike Manon Nash Necalli Necro Oni Oro Poison Q R-Mika Rashid Remy Retsu Rolento Rose Rufus Ryu Sagat Sakura Sean Seth Shin-Akuma Sodom T-Hawk Twelve Urien Vega Violent-Ken Yang Yun Zangief Zeku)
 cd .github/workflows
 
 create_workflows () {
@@ -25,41 +25,23 @@ create_workflows () {
     echo -e "${RESPONSE}\n${running} ${bold} creating ${STUDENT} workflow${nc}";
     touch ${STUDENT}.yaml
     tee ${STUDENT}.yaml << END
-Name: ${STUDENT}
-RunMode: QUEUED
-SchemaVersion: "1.0"
+name: CI
+on:
+  push:
+    branches: [ "${STUDENT}" ]
+  pull_request:
+    branches: [ "${STUDENT}" ]
 
-# Optional - Set automatic triggers. Doing another no-op update
-Triggers:
-  - Type: Push
-    Branches:
-      - main
-      - ${STUDENT}
-  - Type: PullRequest
-    Events:
-      - open
-      - revision
-    Branches:
-      - main
-Actions:
-  Friends:
-    Actions:
-      A:
-        Identifier: aws/build-gamma@v1
-        Inputs:
-          Sources:
-            - WorkflowSource
-        Configuration:
-          Steps:
-            - Run: echo "${STUDENT}!"
-      B:
-        Identifier: aws/build-gamma@v1
-        Inputs:
-          Sources:
-            - WorkflowSource
-        Configuration:
-          Steps:
-            - Run: echo "${STUDENT}!"
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo ${STUDENT}!
 END
     RESPONSE="${RESPONSE}\n${check} ${white} created ${STUDENT} workflow${nc}";
   done
@@ -78,7 +60,8 @@ delete_branches () {
   for STUDENT in "${STUDENTS[@]}";
   do
     echo -e "${RESPONSE}\n${running} ${bold} deleting ${STUDENT} branch${nc}";
-    git branch -D ${STUDENT}
+    #git branch -D ${STUDENT}
+    git push origin --delete ${STUDENT}
     #git push origin -d ${STUDENT}
     RESPONSE="${RESPONSE}\n${check} ${white} deleted ${STUDENT} branch${nc}";
   done
@@ -114,3 +97,5 @@ push_branch () {
     RESPONSE="${RESPONSE}\n${check} ${white} pushed ${STUDENT} branch${nc}";
   done
 }
+
+delete_branches
