@@ -1,0 +1,13 @@
+Name: workflow-197
+SchemaVersion: 1.0
+RunMode: QUEUED
+Triggers:
+  - Type: Push
+    Branches:
+      - group-by-organization-id
+Actions:
+  Mock:
+    Identifier: aws/workflows-mock-gamma@v1
+    Inputs:
+      Sources:
+        - WorkflowSource
