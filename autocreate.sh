@@ -50,7 +50,7 @@ END
 }
 
 commit_workflows () {
-  git add . && git commit -am "updateing workflows" && git push
+  git add . && git commit -am "updateting workflows" && git push
 }
 
 create_workflows
