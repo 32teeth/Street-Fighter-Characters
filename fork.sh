@@ -97,4 +97,5 @@ push_branch () {
   done
 }
 
-delete_branches
+create_branches
+push_branches
